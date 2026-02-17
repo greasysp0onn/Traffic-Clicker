@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Traffic Simulator</title>
+    <title>Ultimate Clicker Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Traffic Intersection Simulator</h1>
-    <p>Score: <span id="score">0</span></p>
-    <canvas id="gameCanvas" width="600" height="600"></canvas>
-    <button onclick="startGame()">Start Game</button>
 
-    <script src="script.js"></script>
+<div id="mainMenu" class="screen">
+    <h1>Ultimate Clicker Simulator</h1>
+    <button onclick="startGame()">Start Game</button>
+    <button onclick="openSettings()">Settings</button>
+</div>
+
+<div id="gameScreen" class="screen hidden">
+    <h2>Coins: <span id="coins">0</span></h2>
+    <h3>Coins Per Click: <span id="cpc">1</span></h3>
+    <h3>Auto Clickers: <span id="auto">0</span></h3>
+
+    <button id="clickButton" onclick="clickCoin()">CLICK</button>
+
+    <h2>Upgrades</h2>
+    <button onclick="buyUpgrade('click')">
+        Increase Click Power (Cost: <span id="clickCost">10</span>)
+    </button>
+    <button onclick="buyUpgrade('auto')">
+        Buy Auto Clicker (Cost: <span id="autoCost">50</span>)
+    </button>
+
+    <br><br>
+    <button onclick="goToMenu()">Main Menu</button>
+</div>
+
+<div id="settingsScreen" class="screen hidden">
+    <h2>Settings</h2>
+    <button onclick="resetGame()">Reset Progress</button>
+    <button onclick="goToMenu()">Back</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
