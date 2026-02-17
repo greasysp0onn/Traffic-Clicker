@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background: #121212;
+    background: #1e1e1e;
     color: white;
     font-family: Arial;
 }
@@ -18,9 +18,16 @@ button {
     margin: 5px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 6px;
+    border: none;
 }
 
 #clickButton {
-    font-size: 30px;
+    font-size: 26px;
     padding: 20px 40px;
+    background: #f1c40f;
+}
+
+button:hover {
+    opacity: 0.85;
 }

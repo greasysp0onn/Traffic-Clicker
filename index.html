@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ultimate Clicker Simulator</title>
+    <title>Traffic Clicker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="mainMenu" class="screen">
-    <h1>Ultimate Clicker Simulator</h1>
+    <h1>🚦 Traffic Clicker</h1>
     <button onclick="startGame()">Start Game</button>
     <button onclick="openSettings()">Settings</button>
 </div>
 
 <div id="gameScreen" class="screen hidden">
-    <h2>Coins: <span id="coins">0</span></h2>
-    <h3>Coins Per Click: <span id="cpc">1</span></h3>
-    <h3>Auto Clickers: <span id="auto">0</span></h3>
+    <h2>Cars Managed: <span id="coins">0</span></h2>
+    <h3>Traffic Control Power: <span id="cpc">1</span></h3>
+    <h3>Traffic Officers: <span id="auto">0</span></h3>
 
-    <button id="clickButton" onclick="clickCoin()">CLICK</button>
+    <button id="clickButton" onclick="clickCoin()">Control Traffic</button>
 
     <h2>Upgrades</h2>
     <button onclick="buyUpgrade('click')">
-        Increase Click Power (Cost: <span id="clickCost">10</span>)
+        Upgrade Traffic Lights (Cost: <span id="clickCost">10</span>)
     </button>
     <button onclick="buyUpgrade('auto')">
-        Buy Auto Clicker (Cost: <span id="autoCost">50</span>)
+        Hire Traffic Officer (Cost: <span id="autoCost">50</span>)
     </button>
 
     <br><br>
@@ -33,7 +33,7 @@
 
 <div id="settingsScreen" class="screen hidden">
     <h2>Settings</h2>
-    <button onclick="resetGame()">Reset Progress</button>
+    <button onclick="resetGame()">Reset City</button>
     <button onclick="goToMenu()">Back</button>
 </div>
 

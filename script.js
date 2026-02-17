@@ -1,70 +1,70 @@
-let coins = 0;
-let coinsPerClick = 1;
-let autoClickers = 0;
+let carsManaged = 0;
+let trafficPower = 1;
+let officers = 0;
 
-let clickUpgradeCost = 10;
-let autoUpgradeCost = 50;
+let lightUpgradeCost = 10;
+let officerCost = 50;
 
 function saveGame() {
-    localStorage.setItem("clickerSave", JSON.stringify({
-        coins,
-        coinsPerClick,
-        autoClickers,
-        clickUpgradeCost,
-        autoUpgradeCost
+    localStorage.setItem("trafficClickerSave", JSON.stringify({
+        carsManaged,
+        trafficPower,
+        officers,
+        lightUpgradeCost,
+        officerCost
     }));
 }
 
 function loadGame() {
-    let save = JSON.parse(localStorage.getItem("clickerSave"));
+    let save = JSON.parse(localStorage.getItem("trafficClickerSave"));
     if (save) {
-        coins = save.coins;
-        coinsPerClick = save.coinsPerClick;
-        autoClickers = save.autoClickers;
-        clickUpgradeCost = save.clickUpgradeCost;
-        autoUpgradeCost = save.autoUpgradeCost;
+        carsManaged = save.carsManaged;
+        trafficPower = save.trafficPower;
+        officers = save.officers;
+        lightUpgradeCost = save.lightUpgradeCost;
+        officerCost = save.officerCost;
     }
     updateUI();
 }
 
 function updateUI() {
-    document.getElementById("coins").innerText = coins;
-    document.getElementById("cpc").innerText = coinsPerClick;
-    document.getElementById("auto").innerText = autoClickers;
-    document.getElementById("clickCost").innerText = clickUpgradeCost;
-    document.getElementById("autoCost").innerText = autoUpgradeCost;
+    document.getElementById("coins").innerText = carsManaged;
+    document.getElementById("cpc").innerText = trafficPower;
+    document.getElementById("auto").innerText = officers;
+    document.getElementById("clickCost").innerText = lightUpgradeCost;
+    document.getElementById("autoCost").innerText = officerCost;
 }
 
 function clickCoin() {
-    coins += coinsPerClick;
+    carsManaged += trafficPower;
     updateUI();
     saveGame();
 }
 
 function buyUpgrade(type) {
-    if (type === "click" && coins >= clickUpgradeCost) {
-        coins -= clickUpgradeCost;
-        coinsPerClick++;
-        clickUpgradeCost = Math.floor(clickUpgradeCost * 1.5);
+    if (type === "click" && carsManaged >= lightUpgradeCost) {
+        carsManaged -= lightUpgradeCost;
+        trafficPower++;
+        lightUpgradeCost = Math.floor(lightUpgradeCost * 1.5);
     }
 
-    if (type === "auto" && coins >= autoUpgradeCost) {
-        coins -= autoUpgradeCost;
-        autoClickers++;
-        autoUpgradeCost = Math.floor(autoUpgradeCost * 1.7);
+    if (type === "auto" && carsManaged >= officerCost) {
+        carsManaged -= officerCost;
+        officers++;
+        officerCost = Math.floor(officerCost * 1.7);
     }
 
     updateUI();
     saveGame();
 }
 
-function autoClickLoop() {
-    coins += autoClickers;
+function autoLoop() {
+    carsManaged += officers;
     updateUI();
     saveGame();
 }
 
-setInterval(autoClickLoop, 1000);
+setInterval(autoLoop, 1000);
 
 function startGame() {
     document.getElementById("mainMenu").classList.add("hidden");
@@ -83,12 +83,12 @@ function goToMenu() {
 }
 
 function resetGame() {
-    localStorage.removeItem("clickerSave");
-    coins = 0;
-    coinsPerClick = 1;
-    autoClickers = 0;
-    clickUpgradeCost = 10;
-    autoUpgradeCost = 50;
+    localStorage.removeItem("trafficClickerSave");
+    carsManaged = 0;
+    trafficPower = 1;
+    officers = 0;
+    lightUpgradeCost = 10;
+    officerCost = 50;
     updateUI();
 }
 
